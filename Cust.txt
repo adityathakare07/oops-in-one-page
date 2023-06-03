@@ -1,0 +1,67 @@
+private Integer customerId;
+		private String customerFirstName;
+		private String customerMiddleName;
+		private String customerLastName;
+		private String customerDateOfBirth;
+		private String customerGender;
+		private String customerMaritalStatus;
+		private double loanAmount;
+		private String emailId;
+		private long mobileNumber;
+		private String panCardNumber;
+		private long aadharNumber;
+		private String documentStatus;
+
+	@OneToOne(cascade = CascadeType.ALL)
+		private CustomerBankDetails customerbankdetails;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private CustomerProfessionalDetails customerprofessionaldetails;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private PreviousLoanDetails peviouslandetails;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private CustomerDocuments customerdocuments;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private LoanDetails loandetails;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private PropertyDetails propertydetails;
+	 
+		@OneToOne(cascade = CascadeType.ALL)
+		private GuarantorDetails guarantordetails;
+		
+		@OneToOne(cascade = CascadeType.ALL)
+		private Address address;
+
+
+package com.happytohelpfinance.app.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+public class LoanDetails {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+		private Integer loanDetails;
+		private long expectedLoanAmount;
+		private  Integer expectedLoanTenure;
+		private long expectedEmiAmount;
+		private String loanStatus; 
+		private String loanDisbursedStatus;
+
+
+}
+
